@@ -1,0 +1,22 @@
+Link:
+https://www.saucedemo.com/
+
+Business Functionality:
+To order a product
+
+1. US1: Login with "standard user" -> Expected : successful login to homepage
+2. US2: Login with "locked_out_user" -> Expected: verify the message "Epic sadface: Sorry, this user has been locked out."
+3. US3: Login with "problem_user" -> Expected:
+                                     a. filter/sort working
+                                     b. remove of added items from cart
+                                     c. error when clicking "About" link
+4. US4: Login with "performance_glitch_user" - > Expected
+                                     a. take time to login
+                                     b. webpage not displayed properly
+5. US5: Login with "error_user" -> Expected:
+                                    a. validate msg "Sorting is broken! This error has been reported to Backtrace." on clicking sorting
+                                    b. add 5 items in cart
+6. US6: Login with "visual_user" -> Expected:
+                                    a. validate the position of buttons
+                                    b. validate product name and image match
+
