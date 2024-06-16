@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="sauceLabPackage">
+    <!--
+        Define one or more <test> elements to represent a test.
+        Each <test> element can contain one or more <classes> or <methods> elements.
+    -->
+    <test name="Test1">
+        <!-- Specify the classes or methods to include in this test -->
+        <classes>
+            <class name="sauceLabPackage.Login" />
+        </classes>
+    </test>
+
+    <!-- You can define multiple <test> elements for different tests -->
+
+    <!--
+        Define listeners if needed. Listeners are used for executing code before or after tests,
+        suites, or other TestNG events.
+    -->
+    <listeners>
+        <!--<listener class-name="packageName.listenerClassName" /> -->
+    </listeners>
+
+    <!-- Other configurations such as parallel execution, parameters, etc. -->
+
+</suite>
