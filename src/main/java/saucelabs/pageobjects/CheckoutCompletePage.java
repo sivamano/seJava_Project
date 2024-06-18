@@ -37,4 +37,5 @@ public class CheckoutCompletePage {
             throw new Exception("Element not found"+ex.getMessage());
         }
     }
+
 }

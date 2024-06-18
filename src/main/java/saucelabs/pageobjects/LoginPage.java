@@ -29,6 +29,15 @@ public class LoginPage {
     @FindBy(xpath = "//input[@id=\"login-button\"]")
             WebElement loginButton;
 
+    @FindBy(xpath = "//h3[@data-test=\"error\"]")
+    WebElement errorMessageElement;
+    //open the application to be tested
+
+    public void openApp()
+    {
+        driver.get("https://www.saucedemo.com/");
+    }
+
     // create business useful methods to perform actions
     public void loginToApp(String userName, String password)
     {
@@ -36,6 +45,12 @@ public class LoginPage {
         passwordTextBox.sendKeys(password);
         loginButton.click();
 
+    }
+
+    public String loginErrorMessage()
+    {
+        String errorText = errorMessageElement.getText();
+        return errorText;
     }
 
 }
