@@ -1,0 +1,10 @@
+[
+  {
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R",
+    "thanksText" : "Thank you for your order!"
+  }
+]

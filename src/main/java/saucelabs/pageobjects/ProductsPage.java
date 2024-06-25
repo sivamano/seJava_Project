@@ -12,6 +12,8 @@ public class ProductsPage {
 
     // initialize driver variable
     WebDriver driver;
+    WebElement productName;
+    WebElement productDescription;
 
     // define constructor with Webdriver argument and assign the driver you get when creating obj of this class to this class's driver
     public ProductsPage(WebDriver driver){
@@ -25,9 +27,12 @@ public class ProductsPage {
 
     // this method returns the specific "INVENTORY" based on the name of the inventory
     public WebElement selectProductByName(String prodName){
-       WebElement product = inventoryList.stream().filter(inventory ->
-                inventory.findElement(By.xpath(".//div[@class=\"inventory_item_name \"]")).getText().equals(prodName)).findFirst().orElse(null) ;
-       return product;
+        productName = inventoryList.stream()
+                .filter(inventory -> inventory.findElement(By.xpath(".//div[@class=\"inventory_item_name \"]"))
+                        .getText().equals(prodName))
+                .findFirst()
+                .orElse(null) ;
+       return productName;
     }
 
     // this method clicks the button of INVENTORY based on the name of the inventory
@@ -36,6 +41,15 @@ public class ProductsPage {
         //System.out.println(product.getText());
         product.findElement(By.xpath(".//button")).click();
 
+    }
+
+    WebElement selectProductByDescription(String prodDescription){
+        productDescription = inventoryList.stream()
+                .filter(inventoryDesc -> inventoryDesc.findElement(By.className("inventory_item_desc"))
+                        .getText().equals(prodDescription))
+                .findFirst()
+                .orElse(null);
+        return productDescription;
     }
 
 
