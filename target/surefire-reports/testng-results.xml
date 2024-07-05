@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-05T10:29:38 IST" name="saucelabs.testcomponents" finished-at="2024-07-05T10:29:42 IST" duration-ms="4127">
+    <groups>
+    </groups>
+    <test started-at="2024-07-05T10:29:38 IST" name="Verify if product details are displayed appropriately" finished-at="2024-07-05T10:29:42 IST" duration-ms="4127">
+      <class name="saucelabs.testcomponents.happyPathTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T10:29:38 IST" name="launchApplication" finished-at="2024-07-05T10:29:40 IST" duration-ms="2252" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="demoTest(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T10:29:40 IST" name="demoTest" data-provider="getData" finished-at="2024-07-05T10:29:42 IST" duration-ms="1435" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{thanksText=Thank you for your order!, firstName=fname, lastName=lname, password=secret_sauce, postalCode=78R45R, username=standard_user, products=[Sauce Labs Backpack, Sauce Labs Fleece Jacket]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- demoTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T10:29:42 IST" name="tearDown" finished-at="2024-07-05T10:29:42 IST" duration-ms="172" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- saucelabs.testcomponents.happyPathTest -->
+    </test> <!-- Verify if product details are displayed appropriately -->
+  </suite> <!-- saucelabs.testcomponents -->
+</testng-results>

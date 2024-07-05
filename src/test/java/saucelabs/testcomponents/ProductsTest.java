@@ -1,12 +1,12 @@
 package saucelabs.testcomponents;
 
-import org.testng.annotations.Parameters;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class ProductsTest extends BaseTest {
 
-    @Test()
-    public void productDetailsVerification(){
+    @Test
+    public void orderASingleProduct(){
         //1.Login as a standard user
         loginPage.loginToApp("standard_user","secret_sauce");
 
@@ -15,5 +15,11 @@ public class ProductsTest extends BaseTest {
 
     }
 
+
+    @DataProvider
+    void getData(){
+
+
+    }
 
 }

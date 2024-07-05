@@ -21,12 +21,11 @@ public class CheckoutCompletePage {
     @FindBy(id="back-to-products")
     WebElement backToProductsButton;
 
-    public void verifyCompletionMessage(String thanksText)
+    public String getThanksText()
     {
-        if(this.thanksText.getText() == thanksText)
-        {
-            System.out.println("Message is displayed correctly"+ this.thanksText);
-        }
+
+        return thanksText.getText();
+
     }
 
     public void proceedBackToProducts() throws Exception {

@@ -1,8 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="saucelabs.testcomponents">
+    <listeners>
+        <listener class-name="saucelabs.testcomponents.Listeners" />
+    </listeners>
     <test name="Verify if product details are displayed appropriately">
         <classes>
-            <class name="saucelabs.testcomponents.ProductsTest" />
+            <class name="saucelabs.testcomponents.happyPathTest" />
         </classes>
     </test>
 
@@ -12,9 +15,7 @@
         Define listeners if needed. Listeners are used for executing code before or after tests,
         suites, or other TestNG events.
     -->
-    <listeners>
-        <!--<listener class-name="packageName.listenerClassName" /> -->
-    </listeners>
+
 
     <!-- Other configurations such as parallel execution, parameters, etc. -->
 
