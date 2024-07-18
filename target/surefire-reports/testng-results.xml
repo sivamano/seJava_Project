@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-05T10:56:30 IST" name="saucelabs.testcomponents" finished-at="2024-07-05T10:56:34 IST" duration-ms="4229">
+  <suite started-at="2024-07-05T11:12:51 IST" name="saucelabs.testcomponents" finished-at="2024-07-05T11:12:55 IST" duration-ms="4549">
     <groups>
     </groups>
-    <test started-at="2024-07-05T10:56:30 IST" name="Verify if product details are displayed appropriately" finished-at="2024-07-05T10:56:34 IST" duration-ms="4229">
+    <test started-at="2024-07-05T11:12:51 IST" name="Verify if product details are displayed appropriately" finished-at="2024-07-05T11:12:55 IST" duration-ms="4549">
       <class name="saucelabs.testcomponents.happyPathTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T10:56:30 IST" name="launchApplication" finished-at="2024-07-05T10:56:32 IST" duration-ms="2424" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T11:12:51 IST" name="launchApplication" finished-at="2024-07-05T11:12:54 IST" duration-ms="2689" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="demoTest(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T10:56:32 IST" name="demoTest" data-provider="getData" finished-at="2024-07-05T10:56:34 IST" duration-ms="1397" status="PASS">
+        <test-method signature="demoTest(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T11:12:54 IST" name="demoTest" data-provider="getData" finished-at="2024-07-05T11:12:55 IST" duration-ms="1475" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,7 +22,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- demoTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T10:56:34 IST" name="tearDown" finished-at="2024-07-05T10:56:34 IST" duration-ms="169" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T11:12:55 IST" name="tearDown" finished-at="2024-07-05T11:12:55 IST" duration-ms="110" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

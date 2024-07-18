@@ -5,7 +5,8 @@
     "firstName" :"fname",
     "lastName" : "lname",
     "postalCode" : "78R45R",
-    "products" : [
+    "products" :
+    [
       "Sauce Labs Backpack",
       "Sauce Labs Fleece Jacket"
     ],

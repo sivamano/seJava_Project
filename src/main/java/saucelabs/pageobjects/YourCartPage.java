@@ -23,25 +23,21 @@ public class YourCartPage {
     @FindBy(id="checkout")
     WebElement checkOutButton;
 
-    public void verifyItemsInCart(String prodName)
+    public boolean verifyItemsInCart(String prodName)
     {
         PageFactory.initElements(driver, this);
     boolean x = cartItems.stream().
             anyMatch(cartItem -> cartItem.findElement(By.xpath(".//div[@class=\"inventory_item_name\"]"))
                     .getText()
                     .contains(prodName));
-
-     if(x==true)
-     {
-         System.out.println(prodName+" is present in cart");
-     }
-     else {
-         System.out.println(prodName + " is not present in cart");
-     }
+        return x;
     }
 
-    public void proceedToCheckout()
+    public YourInformationPage proceedToCheckout()
     {
         checkOutButton.click();
+        YourInformationPage yourInformationPageObj = new YourInformationPage(driver);
+        return yourInformationPageObj;
+
     }
     }

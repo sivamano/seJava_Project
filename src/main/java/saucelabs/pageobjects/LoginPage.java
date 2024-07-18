@@ -39,11 +39,13 @@ public class LoginPage {
     }
 
     // create business useful methods to perform actions
-    public void loginToApp(String userName, String password)
+    public ProductsPage loginToApp(String userName, String password)
     {
         userNameTextBox.sendKeys(userName);
         passwordTextBox.sendKeys(password);
         loginButton.click();
+        ProductsPage productsPageObj = new ProductsPage(driver);
+        return productsPageObj;
 
     }
 

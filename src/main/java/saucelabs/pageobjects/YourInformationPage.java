@@ -33,9 +33,11 @@ public class YourInformationPage {
         postalCodeTextBox.sendKeys(postalCode);
     }
 
-    public void proceedFurther()
+    public CheckoutOverviewPage proceedFurther()
     {
         continueButton.click();
+        CheckoutOverviewPage checkoutOverviewPageObj = new CheckoutOverviewPage(driver);
+        return checkoutOverviewPageObj;
     }
 
 

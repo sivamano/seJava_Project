@@ -1,75 +1,75 @@
 package saucelabs.testcomponents;
 
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import saucelabs.common.SiteHeader;
 import saucelabs.pageobjects.*;
 
-
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-public class happyPathTest extends BaseTest{
+public class happyPathTest extends BaseTest {
 
     @Test(dataProvider = "getData")
-      public void demoTest(HashMap<String,Object> input) throws Exception {
+    public void demoTest(HashMap<String, Object> input) throws Exception {
 
         //Items to be ordered
-
         ArrayList<String> desiredItems = (ArrayList<String>) input.get("products");
 
         //Open app, login
-
-        loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
-        //loginPage.loginToApp("siva", "password");
+        ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
+        String currentURL = driver.getCurrentUrl();
+        Assert.assertTrue(currentURL.contains("/inventory.html"));
 
         //add desired items in cart
-        ProductsPage productsPageObj = new ProductsPage(driver);
-        for (String desiredItem: desiredItems)
-        {
-            productsPageObj.selectProductByName(desiredItem);
+        for (String desiredItem : desiredItems) {
+            WebElement productName = productsPageObj.selectProductByName(desiredItem);
+            Assert.assertEquals(desiredItem, productName.findElement(By.xpath(".//div[@class=\"inventory_item_name \"]")).getText());
             productsPageObj.addProductToCart(desiredItem);
         }
 
         //go to cart section
         SiteHeader siteHeader = new SiteHeader(driver);
-        siteHeader.clickShoppingCartLink();
+        YourCartPage yourCartPageObj = siteHeader.clickShoppingCartLink();
 
-        //verify the information in cartpage
-        YourCartPage yourCartPageObj = new YourCartPage(driver);
-        for(String desiredItem: desiredItems)
-        {
+
+        //verify the information in cartPage
+        for (String desiredItem : desiredItems) {
             //System.out.println("driver class "+desiredItem);
-            yourCartPageObj.verifyItemsInCart(desiredItem);
+            boolean x = yourCartPageObj.verifyItemsInCart(desiredItem);
+            Assert.assertTrue(x, desiredItem + " is present in cart");
+
         }
-        yourCartPageObj.proceedToCheckout();
+        YourInformationPage yourInformationPageObj = yourCartPageObj.proceedToCheckout();
 
         //provide your personal info to proceed to order
-        YourInformationPage yourInformationPageObj = new YourInformationPage(driver);
         yourInformationPageObj.providePersonalDetails((String) input.get("firstName"), (String) input.get("lastName"), (String) input.get("postalCode"));
-        yourInformationPageObj.proceedFurther();
+        CheckoutOverviewPage checkoutOverviewPageObj = yourInformationPageObj.proceedFurther();
 
-        //finally verify all your details
-        CheckoutOverviewPage checkoutOverviewPageObj = new CheckoutOverviewPage(driver);
-        checkoutOverviewPageObj.valueOfCartItemsBeforeTax();
-        checkoutOverviewPageObj.valueOfCartItemsAfterTax();
-        checkoutOverviewPageObj.proceedToFinish();
+        //finally, verify all your details
+        float totalB4Tax[] = checkoutOverviewPageObj.valueOfCartItemsBeforeTax();
+        Assert.assertEquals(totalB4Tax[0], totalB4Tax[1]);
+        float totalValue[] = checkoutOverviewPageObj.valueOfCartItemsAfterTax();
+        Assert.assertEquals(totalValue[0], totalValue[1]);
+        CheckoutCompletePage checkoutCompletePageObj = checkoutOverviewPageObj.proceedToFinish();
 
         //compete checkout and return to products page
-        CheckoutCompletePage checkoutCompletePageObj = new CheckoutCompletePage(driver);
-        Assert.assertEquals(checkoutCompletePageObj.getThanksText(),input.get("thanksText"));
+        Assert.assertEquals(checkoutCompletePageObj.getThanksText(), input.get("thanksText"));
         checkoutCompletePageObj.proceedBackToProducts();
     }
 
     @Test
 
     @DataProvider
-            public Object[][] getData() throws IOException {
-      String dataFilePath = System.getProperty("user.dir")+"/src/test/java/saucelabs/data/happypath/happypath.json";
-      List<HashMap<String,Object>> data = getDataToMap(dataFilePath);
-      return new Object[][] {{data.get(0)}};
+    public Object[][] getData() throws IOException {
+        String dataFilePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/happypath/happypath.json";
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][]{{data.get(0)}};
     }
 
 

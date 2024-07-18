@@ -35,7 +35,7 @@ public class CheckoutOverviewPage {
     WebElement finishButton;
 
     //to fetch the value of each item and add it
-        public void valueOfCartItemsBeforeTax(){
+        public float[] valueOfCartItemsBeforeTax(){
            totalBeforeTax_Computed = (float) cartItems
                     .stream()
                     .mapToDouble(cartItem ->
@@ -50,35 +50,30 @@ public class CheckoutOverviewPage {
             float totalBeforeTax_Display =  Float
                     .parseFloat(totalBeforeTax_DisplayElement.getText().replaceAll("[a-zA-Z\\s$:]",""));
 
-            if(totalBeforeTax_Computed==totalBeforeTax_Display)
-            {
-                System.out.println("Total value of cart items (before tax) is displayed correctly as $ "+totalBeforeTax_Computed);
-            }
-            else
-            {
-                System.out.println("The value of cart item (before tax) displayed $"+totalBeforeTax_Display+" differs from the computation value of $"+totalBeforeTax_Computed+".");
-            }
+            float totalB4Tax[] = {totalBeforeTax_Computed,totalBeforeTax_Display};
+            return totalB4Tax;
+
         }
 
-        public void valueOfCartItemsAfterTax()
+        public float[] valueOfCartItemsAfterTax()
         {
            // double totalBeforeTax_Display = Double.parseDouble(totalBeforeTax_DisplayElement.getText().replaceAll("[a-zA-Z\\s$:]",""));
             float totalTax = Float.parseFloat(totalTax_DisplayElement.getText().replaceAll("[a-zA-Z\\s$:]",""));
-            float totalValueComputed = totalBeforeTax_Computed+totalTax;
+            float totalValueComputed_noRounding = (float) (totalBeforeTax_Computed+totalTax);
+            String roundedNumberStr = String.format("%.2f", totalValueComputed_noRounding);
+            float totalValueComputed =  Float.parseFloat(roundedNumberStr);
             float totalValueDisplayed = Float.parseFloat(totalValue_DisplayElement.getText().replaceAll("[a-zA-Z\\s$:]",""));
-            if(totalValueComputed == totalValueDisplayed)
-            {
-                System.out.println("Total value of cart items is displayed correctly as $ "+totalValueComputed);
-            }
-            else
-            {
-                System.out.println("The value of cart item displayed $"+totalValueDisplayed+" differs from the computation value of $"+totalValueComputed+".");
-            }
+
+            float totalValue[] ={totalValueComputed,totalValueDisplayed};
+            return totalValue;
+
         }
 
-        public void proceedToFinish() throws Exception {
+        public CheckoutCompletePage proceedToFinish() throws Exception {
             try{
                 finishButton.click();
+                CheckoutCompletePage checkoutCompletePageObj = new CheckoutCompletePage(driver);
+                return checkoutCompletePageObj;
             }
             catch(Exception ex){
                 throw new Exception("element not found");

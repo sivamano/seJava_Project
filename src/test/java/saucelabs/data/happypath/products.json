@@ -1,10 +1,87 @@
 [
   {
+    "--comment--": "Data for ordering multiple products",
+    "--dataIndex" : 0,
     "username" : "standard_user",
     "password" : "secret_sauce",
     "firstName" :"fname",
     "lastName" : "lname",
     "postalCode" : "78R45R",
+    "products" :
+    [
+      "Sauce Labs Backpack",
+      "Sauce Labs Fleece Jacket"
+    ],
     "thanksText" : "Thank you for your order!"
+  },
+  {
+    "--comment--": "Data for ordering single products",
+    "--dataIndex" : 1,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R",
+    "products" :
+    [
+      "Sauce Labs Backpack"
+    ],
+    "product_desc" :
+            [
+              "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.",
+              "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included."
+            ],
+    "thanksText" : "Thank you for your order!"
+  },
+  {
+    "--comment--": "sort from highest to lowest",
+    "--dataIndex" : 2,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R",
+    "sortBy" : "Price (high to low)",
+    "thanksText" : "Thank you for your order!"
+  },
+  {
+    "--comment--": "sort from lowest to highest",
+    "--dataIndex" : 3,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R",
+    "sortBy" : "Price (low to high)",
+    "thanksText" : "Thank you for your order!"
+  },
+  {
+    "--comment--": "sort alphabetically from highest to lowest",
+    "--dataIndex" : 4,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R",
+    "sortBy" : "Name (Z to A)",
+    "thanksText" : "Thank you for your order!"
+  },
+  {
+    "--comment--": "sort alphabetically from lowest to highest",
+    "--dataIndex" : 5,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R",
+    "sortBy" : "Name (A to Z)",
+    "thanksText" : "Thank you for your order!"
+  },
+  {
+    "--comment--": "product details page verification",
+    "--dataIndex" : 6,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "product" : "Sauce Labs Bolt T-Shirt"
   }
 ]
