@@ -33,7 +33,7 @@ public class Listeners extends BaseTest implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
        ITestListener.super.onTestSuccess(result);
-        test.log(Status.PASS,"Test passed");
+       test.log(Status.PASS,"Test passed");
         // *****THREAD SAFE ALTERNATIVE CODE****:
         // now replace the ExtentTest object "test"  with "extentTest.get()"
         //    extentTest.get().log(Status.PASS,result.getThrowable());
@@ -59,7 +59,9 @@ public class Listeners extends BaseTest implements ITestListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        test.addScreenCaptureFromPath(screenshotPath,result.getMethod().getMethodName());
+        if (screenshotPath != null) {
+            test.addScreenCaptureFromPath(screenshotPath, result.getMethod().getMethodName());
+        }
 
         // *****THREAD SAFE ALTERNATIVE CODE****:
         // now replace the ExtentTest object "test"  with "extentTest.get()"

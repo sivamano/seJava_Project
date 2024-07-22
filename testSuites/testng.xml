@@ -3,10 +3,11 @@
     <listeners>
         <listener class-name="saucelabs.testcomponents.Listeners" />
     </listeners>
-    <test name="Verify if product details are displayed appropriately">
+    <test name = "ProductsTest">
         <classes>
-            <class name="saucelabs.testcomponents.happyPathTest" />
+            <class name="saucelabs.testcomponents.ProductsTest" />
         </classes>
+
     </test>
 
     <!-- You can define multiple <test> elements for different tests -->

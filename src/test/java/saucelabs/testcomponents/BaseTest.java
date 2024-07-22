@@ -111,11 +111,25 @@
 
      */
         //take screenshot
-        public String takeScreenshot(String testCaseName, WebDriver driver) throws IOException {
+       /* public String takeScreenshot(String testCaseName, WebDriver driver) throws IOException {
             TakesScreenshot ts = (TakesScreenshot) this.driver;
             File screenshotSource = ts.getScreenshotAs(OutputType.FILE);
             File screenshotDestination = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
             FileUtils.copyFile(screenshotSource, screenshotDestination);
             return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
+        }
+*/
+        public String takeScreenshot(String testCaseName, WebDriver driver) throws IOException {
+            if (driver == null) {
+                System.out.println("WebDriver instance is null. Cannot take screenshot.");
+                return null;
+            }
+
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            File screenshotSource = ts.getScreenshotAs(OutputType.FILE);
+            String screenshotDirectory = System.getProperty("user.dir") + File.separator + "reports";
+            File screenshotDestination = new File(screenshotDirectory + File.separator + testCaseName + ".png");
+            FileUtils.copyFile(screenshotSource, screenshotDestination);
+            return screenshotDestination.getAbsolutePath();
         }
     }

@@ -1,32 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-05T11:12:51 IST" name="saucelabs.testcomponents" finished-at="2024-07-05T11:12:55 IST" duration-ms="4549">
+  <suite started-at="2024-07-22T19:17:23 IST" name="saucelabs.testcomponents" finished-at="2024-07-22T19:17:46 IST" duration-ms="23206">
     <groups>
+      <group name="Products Test">
+        <method signature="ProductsTest.addProdFromDetailsPage(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="addProdFromDetailsPage" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.alphaSortZtoA(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="alphaSortZtoA" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.alphaSortedAtoZ(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="alphaSortedAtoZ" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.orderASingleProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="orderASingleProduct" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.orderCheapestProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="orderCheapestProduct" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.orderCostliestProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="orderCostliestProduct" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.orderMultipleProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="orderMultipleProduct" class="saucelabs.testcomponents.ProductsTest"/>
+      </group> <!-- Products Test -->
+      <group name="E2E">
+        <method signature="ProductsTest.alphaSortZtoA(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="alphaSortZtoA" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.alphaSortedAtoZ(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="alphaSortedAtoZ" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.orderASingleProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="orderASingleProduct" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.orderCheapestProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="orderCheapestProduct" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.orderCostliestProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="orderCostliestProduct" class="saucelabs.testcomponents.ProductsTest"/>
+        <method signature="ProductsTest.orderMultipleProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" name="orderMultipleProduct" class="saucelabs.testcomponents.ProductsTest"/>
+      </group> <!-- E2E -->
     </groups>
-    <test started-at="2024-07-05T11:12:51 IST" name="Verify if product details are displayed appropriately" finished-at="2024-07-05T11:12:55 IST" duration-ms="4549">
-      <class name="saucelabs.testcomponents.happyPathTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T11:12:51 IST" name="launchApplication" finished-at="2024-07-05T11:12:54 IST" duration-ms="2689" status="PASS">
+    <test started-at="2024-07-22T19:17:23 IST" name="ProductsTest" finished-at="2024-07-22T19:17:46 IST" duration-ms="23206">
+      <class name="saucelabs.testcomponents.ProductsTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:23 IST" name="launchApplication" finished-at="2024-07-22T19:17:32 IST" duration-ms="9074" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="demoTest(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T11:12:54 IST" name="demoTest" data-provider="getData" finished-at="2024-07-05T11:12:55 IST" duration-ms="1475" status="PASS">
+        <test-method signature="addProdFromDetailsPage(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:32 IST" name="addProdFromDetailsPage" data-provider="addProdFromDetailsPageData" finished-at="2024-07-22T19:17:33 IST" duration-ms="747" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{thanksText=Thank you for your order!, firstName=fname, lastName=lname, password=secret_sauce, postalCode=78R45R, username=standard_user, products=[Sauce Labs Backpack, Sauce Labs Fleece Jacket]}]]>
+                <![CDATA[{--dataIndex=6, password=secret_sauce, product=Sauce Labs Bolt T-Shirt, --comment--=product details page verification, username=standard_user}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- demoTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.happyPathTest@402c4085]" started-at="2024-07-05T11:12:55 IST" name="tearDown" finished-at="2024-07-05T11:12:55 IST" duration-ms="110" status="PASS">
+        </test-method> <!-- addProdFromDetailsPage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:33 IST" name="tearDown" finished-at="2024-07-22T19:17:33 IST" duration-ms="135" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- saucelabs.testcomponents.happyPathTest -->
-    </test> <!-- Verify if product details are displayed appropriately -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:33 IST" name="launchApplication" finished-at="2024-07-22T19:17:34 IST" duration-ms="1112" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="alphaSortZtoA(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:34 IST" name="alphaSortZtoA" data-provider="alphaSortZtoAData" finished-at="2024-07-22T19:17:35 IST" duration-ms="1089" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{thanksText=Thank you for your order!, firstName=fname, lastName=lname, --dataIndex=4, password=secret_sauce, postalCode=78R45R, sortBy=Name (Z to A), --comment--=sort alphabetically from highest to lowest, username=standard_user}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- alphaSortZtoA -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:35 IST" name="tearDown" finished-at="2024-07-22T19:17:35 IST" duration-ms="148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:35 IST" name="launchApplication" finished-at="2024-07-22T19:17:36 IST" duration-ms="1120" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="alphaSortedAtoZ(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:36 IST" name="alphaSortedAtoZ" data-provider="alphaSortAtoZData" finished-at="2024-07-22T19:17:37 IST" duration-ms="950" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{thanksText=Thank you for your order!, firstName=fname, lastName=lname, --dataIndex=5, password=secret_sauce, postalCode=78R45R, sortBy=Name (A to Z), --comment--=sort alphabetically from lowest to highest, username=standard_user}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- alphaSortedAtoZ -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:37 IST" name="tearDown" finished-at="2024-07-22T19:17:37 IST" duration-ms="119" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:37 IST" name="launchApplication" finished-at="2024-07-22T19:17:38 IST" duration-ms="1055" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="orderASingleProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:38 IST" name="orderASingleProduct" data-provider="getSingleProdData" finished-at="2024-07-22T19:17:39 IST" duration-ms="845" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{product_desc=[carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection., A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.], thanksText=Thank you for your order!, firstName=fname, lastName=lname, --dataIndex=1, password=secret_sauce, postalCode=78R45R, --comment--=Data for ordering single products, username=standard_user, products=[Sauce Labs Backpack]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderASingleProduct -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:39 IST" name="tearDown" finished-at="2024-07-22T19:17:39 IST" duration-ms="140" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:39 IST" name="launchApplication" finished-at="2024-07-22T19:17:40 IST" duration-ms="1146" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="orderCheapestProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:40 IST" name="orderCheapestProduct" data-provider="sortLoHiData" finished-at="2024-07-22T19:17:41 IST" duration-ms="927" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{thanksText=Thank you for your order!, firstName=fname, lastName=lname, --dataIndex=3, password=secret_sauce, postalCode=78R45R, sortBy=Price (low to high), --comment--=sort from lowest to highest, username=standard_user}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderCheapestProduct -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:41 IST" name="tearDown" finished-at="2024-07-22T19:17:42 IST" duration-ms="148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:42 IST" name="launchApplication" finished-at="2024-07-22T19:17:43 IST" duration-ms="1019" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="orderCostliestProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:43 IST" name="orderCostliestProduct" data-provider="sortHiLoData" finished-at="2024-07-22T19:17:43 IST" duration-ms="911" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{thanksText=Thank you for your order!, firstName=fname, lastName=lname, --dataIndex=2, password=secret_sauce, postalCode=78R45R, sortBy=Price (high to low), --comment--=sort from highest to lowest, username=standard_user}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderCostliestProduct -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:43 IST" name="tearDown" finished-at="2024-07-22T19:17:44 IST" duration-ms="131" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:44 IST" name="launchApplication" finished-at="2024-07-22T19:17:45 IST" duration-ms="1114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="orderMultipleProduct(java.util.HashMap)[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:45 IST" name="orderMultipleProduct" data-provider="getMultipleProdData" finished-at="2024-07-22T19:17:46 IST" duration-ms="958" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{thanksText=Thank you for your order!, firstName=fname, lastName=lname, --dataIndex=0, password=secret_sauce, postalCode=78R45R, --comment--=Data for ordering multiple products, username=standard_user, products=[Sauce Labs Backpack, Sauce Labs Fleece Jacket]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderMultipleProduct -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:saucelabs.testcomponents.ProductsTest@14028087]" started-at="2024-07-22T19:17:46 IST" name="tearDown" finished-at="2024-07-22T19:17:46 IST" duration-ms="132" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- saucelabs.testcomponents.ProductsTest -->
+    </test> <!-- ProductsTest -->
   </suite> <!-- saucelabs.testcomponents -->
 </testng-results>

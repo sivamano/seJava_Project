@@ -18,7 +18,7 @@ public class ProductsTest extends BaseTest {
 
     String dataFilePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/happypath/products.json";
 
-    @Test(dataProvider = "getSingleProdData")
+    @Test(dataProvider = "getSingleProdData", groups={"E2E","Products Test"})
     public void orderASingleProduct(HashMap<String, Object> input) throws Exception {
 
 
@@ -64,7 +64,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"));
     }
 
-    @Test(dataProvider = "getMultipleProdData")
+    @Test(dataProvider = "getMultipleProdData", groups={"E2E","Products Test"})
     public void orderMultipleProduct(HashMap<String, Object> input) throws Exception {
 
 
@@ -110,7 +110,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"));
     }
 
-    @Test(dataProvider = "sortHiLoData")
+    @Test(dataProvider = "sortHiLoData",groups={"E2E","Products Test"})
     public void orderCostliestProduct(HashMap<String, Object> input) throws Exception {
         //1.Login
         ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
@@ -149,7 +149,7 @@ public class ProductsTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"));
     }
 
-    @Test(dataProvider = "sortLoHiData")
+    @Test(dataProvider = "sortLoHiData",groups={"E2E","Products Test"})
     public void orderCheapestProduct(HashMap<String, Object> input) throws Exception {
         // 1.Login
         ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
@@ -188,8 +188,8 @@ public class ProductsTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"));
     }
 
-    @Test(dataProvider = "alphaSortZtoAData")
-    void alphaSortZtoA(HashMap<String, Object> input) throws Exception {
+    @Test(dataProvider = "alphaSortZtoAData",groups={"E2E","Products Test"})
+    public void alphaSortZtoA(HashMap<String, Object> input) throws Exception {
         // 1.Login
         ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
 
@@ -227,8 +227,8 @@ public class ProductsTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"));
     }
 
-    @Test(dataProvider = "alphaSortAtoZData")
-    void alphaSortedAtoZ(HashMap<String,Object> input) throws Exception {
+    @Test(dataProvider = "alphaSortAtoZData",groups={"E2E","Products Test"})
+    public void alphaSortedAtoZ(HashMap<String,Object> input) throws Exception {
         // 1.Login
         ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
 
@@ -266,9 +266,8 @@ public class ProductsTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"));
     }
 
-    @Test(dataProvider = "addProdFromDetailsPageData")
-    void addProdFromDetailsPage(HashMap<String,Object> input)
-    {
+    @Test(dataProvider = "addProdFromDetailsPageData", groups="Products Test")
+    public void addProdFromDetailsPage(HashMap<String,Object> input) {
         //1.Login and go to products page
         ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
 
@@ -287,6 +286,9 @@ public class ProductsTest extends BaseTest {
         //4.Navigate back to products page and verify the remove button of the desired product
         productDetailsPageObj.backToProducts();
         Assert.assertTrue(productsPageObj.RemoveBtnOfDesiredProduct((String) input.get("product")).isDisplayed(),"Remove button is displayed for the specified product");
+
+        //5. To remove the product from cart, for next test case readiness
+        productsPageObj.RemoveBtnOfDesiredProduct((String) input.get("product")).click();
     }
 
     @DataProvider
@@ -319,7 +321,6 @@ public class ProductsTest extends BaseTest {
 
     @DataProvider
     Object[][] alphaSortZtoAData() throws IOException {
-
         List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][]{{data.get(4)}};
     }

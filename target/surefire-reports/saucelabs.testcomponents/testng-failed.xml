@@ -4,15 +4,15 @@
   <listeners>
     <listener class-name="saucelabs.testcomponents.Listeners"/>
   </listeners>
-  <test thread-count="5" name="Verify if product details are displayed appropriately(failed)" verbose="0">
+  <test thread-count="5" name="ProductsTest(failed)" verbose="0">
     <classes>
-      <class name="saucelabs.testcomponents.happyPathTest">
+      <class name="saucelabs.testcomponents.ProductsTest">
         <methods>
           <include name="launchApplication"/>
           <include name="tearDown"/>
-          <include name="demoTest" invocation-numbers="0"/>
+          <include name="addProdFromDetailsPage" invocation-numbers="0"/>
         </methods>
-      </class> <!-- saucelabs.testcomponents.happyPathTest -->
+      </class> <!-- saucelabs.testcomponents.ProductsTest -->
     </classes>
-  </test> <!-- Verify if product details are displayed appropriately(failed) -->
+  </test> <!-- ProductsTest(failed) -->
 </suite> <!-- Failed suite [saucelabs.testcomponents] -->
