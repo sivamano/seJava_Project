@@ -37,6 +37,8 @@ public class ProductsPage {
     @FindBy(xpath = "//div[@class=\"inventory_item_name \"]")
     List<WebElement> inventoryNamesEle;
 
+
+
     // this method returns the specific "INVENTORY" based on the name of the inventory
     public WebElement selectProductByName(String prodName) {
         productName = inventoryList.stream()
@@ -151,12 +153,16 @@ public class ProductsPage {
         }
         return true;
     }
-
-    public WebElement RemoveBtnOfDesiredProduct(String prodName)
-    {
+    public WebElement removeBtnOfDesiredProduct(String prodName) {
         WebElement prodNameEle = selectProductByName(prodName);
         WebElement removeBtn = prodNameEle.findElement(By.xpath("//button[text()='Remove']"));
         return removeBtn;
+    }
+
+    public WebElement addTOCartBtnOfDesiredProduct(String prodName) {
+        WebElement prodNameEle = selectProductByName(prodName);
+        WebElement addToCartBtn = prodNameEle.findElement(By.xpath("//button[text()='Add to cart']"));
+        return addToCartBtn;
     }
 
 

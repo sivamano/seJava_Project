@@ -18,10 +18,20 @@ public class SiteHeader {
     @FindBy(className = "shopping_cart_link")
     WebElement shoppingCartLink;
 
+    @FindBy(css = "span.shopping_cart_badge")
+    public WebElement cartBadge;
+
+
     public YourCartPage clickShoppingCartLink(){
         shoppingCartLink.click();
         YourCartPage yourCartPageObj = new YourCartPage(driver);
         return yourCartPageObj;
+    }
+
+    public int getCartBadgeCount()
+    {
+        int cartBadgeCount = Integer.parseInt(cartBadge.getText());
+        return cartBadgeCount;
     }
 
 }

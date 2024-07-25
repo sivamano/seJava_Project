@@ -26,6 +26,9 @@ public class YourInformationPage {
     @FindBy(id="continue")
             WebElement continueButton;
 
+    @FindBy(id="cancel")
+            WebElement cancelButton;
+
     public void providePersonalDetails(String firstName, String lastName, String postalCode)
     {
         firstNameTextBox.sendKeys(firstName);
@@ -38,6 +41,11 @@ public class YourInformationPage {
         continueButton.click();
         CheckoutOverviewPage checkoutOverviewPageObj = new CheckoutOverviewPage(driver);
         return checkoutOverviewPageObj;
+    }
+
+    public void cancelProcess()
+    {
+        cancelButton.click();
     }
 
 

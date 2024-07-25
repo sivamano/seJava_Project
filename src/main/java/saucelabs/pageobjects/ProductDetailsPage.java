@@ -25,7 +25,7 @@ public class ProductDetailsPage {
     WebElement productPriceEle;
 
     @FindBy(css = "#add-to-cart")
-    WebElement addToCartBtn;
+    public WebElement addToCartBtn;
 
     @FindBy(css = "#remove")
     public WebElement removeBtn;

@@ -1,0 +1,69 @@
+[
+  {
+  "--comment--": "edit the cart items from products page",
+  "--dataIndex" : 0,
+  "username" : "standard_user",
+  "password" : "secret_sauce",
+  "products" :
+  [
+    "Sauce Labs Backpack",
+    "Sauce Labs Fleece Jacket"
+  ],
+  "productToBeRemoved" : "Sauce Labs Backpack",
+  "productsAfterRemoval" :
+          [
+            "Sauce Labs Fleece Jacket"
+          ]
+  },
+  {
+    "--comment--": "removing all cart items from the products page",
+    "--dataIndex" : 1,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "product" : "Sauce Labs Onesie",
+    "productToBeRemoved" : "Sauce Labs Onesie"
+  },
+  {
+    "--comment--": "badge count is equalent to number of items in cart",
+    "--dataIndex" : 2,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "products" :
+    [
+      "Sauce Labs Backpack",
+      "Sauce Labs Fleece Jacket",
+      "Sauce Labs Bike Light",
+      "Sauce Labs Bolt T-Shirt",
+      "Sauce Labs Onesie"
+    ]
+  },
+  {
+    "--comment--": " products in cart are retained when the user logs out and re-login",
+    "--dataIndex" : 3,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "products" :
+    [
+      "Sauce Labs Backpack",
+      "Sauce Labs Fleece Jacket",
+      "Sauce Labs Bike Light",
+      "Sauce Labs Bolt T-Shirt",
+      "Sauce Labs Onesie"
+    ]
+  },
+  {
+    "--comment--": "edit the cart items in Your Cart Page",
+    "--dataIndex" : 4,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "products" :
+    [
+      "Sauce Labs Backpack",
+      "Sauce Labs Fleece Jacket",
+      "Sauce Labs Bike Light",
+      "Sauce Labs Bolt T-Shirt",
+      "Sauce Labs Onesie"
+    ],
+    "cartItemToBeRemoved" : "Sauce Labs Bike Light"
+  }
+]

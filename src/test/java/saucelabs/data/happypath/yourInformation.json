@@ -1,0 +1,30 @@
+[
+  {
+    "--comment--": "personal information in the \"Your Information\" page",
+    "--dataIndex" : 0,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "products" :
+    [
+      "Sauce Labs Backpack",
+      "Sauce Labs Fleece Jacket"
+    ],
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R"
+  },
+  {
+    "--comment--": " cancel the order in \"Your Information\" page",
+    "--dataIndex" : 1,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "products" :
+    [
+      "Sauce Labs Backpack",
+      "Sauce Labs Fleece Jacket"
+    ],
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R"
+  }
+]

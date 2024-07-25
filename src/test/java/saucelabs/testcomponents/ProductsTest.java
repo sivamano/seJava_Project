@@ -7,10 +7,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import saucelabs.common.SiteHeader;
 import saucelabs.pageobjects.*;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -285,10 +283,30 @@ public class ProductsTest extends BaseTest {
 
         //4.Navigate back to products page and verify the remove button of the desired product
         productDetailsPageObj.backToProducts();
-        Assert.assertTrue(productsPageObj.RemoveBtnOfDesiredProduct((String) input.get("product")).isDisplayed(),"Remove button is displayed for the specified product");
+        Assert.assertTrue(productsPageObj.removeBtnOfDesiredProduct((String) input.get("product")).isDisplayed(),"Remove button is displayed for the specified product");
 
         //5. To remove the product from cart, for next test case readiness
-        productsPageObj.RemoveBtnOfDesiredProduct((String) input.get("product")).click();
+        productsPageObj.removeBtnOfDesiredProduct((String) input.get("product")).click();
+    }
+
+    @Test(dataProvider = "productDetailsVerificationData")
+    public void productDetailsVerification(HashMap<String,Object> input) {
+
+        //1. login as standard user
+        ProductsPage productsPageObj = loginPage.loginToApp((String)input.get("username"),(String) input.get("password"));
+
+        //2. verify the details of the desired product
+        String actualProductDetails[] = productsPageObj.getProductDetails((String) input.get("product"));
+        Assert.assertEquals(actualProductDetails[0], (String) input.get("product"),"Product name is verified" );
+        Assert.assertEquals(actualProductDetails[1], (String)input.get("productDesc"), "Product description is verified");
+        Assert.assertEquals(actualProductDetails[2],input.get("productPrice"),"Product price is verified");
+        WebElement addToCartBtn = productsPageObj.addTOCartBtnOfDesiredProduct((String) input.get("product"));
+        Assert.assertTrue(addToCartBtn.isDisplayed(),"Add to Cart button is displayed for the specified product");
+        addToCartBtn.click();
+        WebElement removeBtn = productsPageObj.removeBtnOfDesiredProduct((String) input.get("product"));
+        Assert.assertTrue(removeBtn.isDisplayed(),"Remove button is displayed for the desired product");
+        removeBtn.click();
+
     }
 
     @DataProvider
@@ -335,5 +353,11 @@ public class ProductsTest extends BaseTest {
     Object[][] addProdFromDetailsPageData() throws IOException {
         List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][]{{data.get(6)}};
+    }
+
+    @DataProvider
+    Object[][] productDetailsVerificationData() throws IOException {
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][]{{data.get(7)}};
     }
 }
