@@ -1,0 +1,14 @@
+[
+{
+  "--comment--": "navigate to \"Your Cart\" page from \"Checkout : Overview \" page",
+  "--dataIndex" : 3,
+  "username" : "standard_user",
+  "password" : "secret_sauce",
+  "product" : "Sauce Labs Backpack",
+  "firstName" :"fname",
+  "lastName" : "lname",
+  "postalCode" : "78R45R",
+  "thanksText" : "Thank you for your order!",
+  "orderDispatchMessage" : "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+}
+]

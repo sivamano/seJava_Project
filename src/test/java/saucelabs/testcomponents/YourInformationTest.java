@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import saucelabs.common.SiteHeader;
-import saucelabs.pageobjects.CheckoutOverviewPage;
 import saucelabs.pageobjects.ProductsPage;
 import saucelabs.pageobjects.YourCartPage;
 import saucelabs.pageobjects.YourInformationPage;
@@ -84,6 +83,38 @@ public class YourInformationTest extends BaseTest{
         Assert.assertTrue(currentURL.contains("cart.html"));
     }
 
+    @Test(dataProvider = "navigateToCartPageFromInfoPageData")
+    void navigateToCartPageFromInfoPage(HashMap<String,Object> input) {
+        //1.login as standard user
+        ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
+
+        //2. Add desired product to cart
+        ArrayList<String> desiredProducts = (ArrayList<String>) input.get("products");
+        for (String desiredProduct : desiredProducts) {
+            productsPageObj.addProductToCart(desiredProduct);
+        }
+
+        //3. Go to YourCart Page
+        SiteHeader siteHeaderObj = new SiteHeader(driver);
+        YourCartPage yourCartPageObj = siteHeaderObj.clickShoppingCartLink();
+
+        //4.Verify the product details in yourCartPage
+        for (String desiredProduct : desiredProducts) {
+            Assert.assertTrue(yourCartPageObj.verifyItemsInCart(desiredProduct), "The added product '" + desiredProduct + "' is present in yourCart page");
+
+        }
+
+        //5.Navigate to yourinfo page
+        YourInformationPage yourInformationPageObj = yourCartPageObj.proceedToCheckout();
+
+        //6.Click Cart link
+        siteHeaderObj.clickShoppingCartLink();
+
+        //7.Verify if your cart page is displayed successfully
+        String currentURL = driver.getCurrentUrl();
+        Assert.assertTrue(currentURL.contains("cart.html"));
+    }
+
     //Data for Testcases
     @DataProvider
     Object[][] enterInfoInYourInfoPageData() throws IOException {
@@ -95,5 +126,11 @@ public class YourInformationTest extends BaseTest{
     Object[][] cancelProcessFromYourInformationPageData() throws IOException {
         List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][] {{data.get(1)}};
+    }
+
+    @DataProvider
+    Object[][] navigateToCartPageFromInfoPageData() throws IOException {
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][] {{data.get(2)}};
     }
 }

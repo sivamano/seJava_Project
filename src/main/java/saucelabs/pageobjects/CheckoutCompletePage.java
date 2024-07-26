@@ -18,14 +18,19 @@ public class CheckoutCompletePage {
     @FindBy(className ="complete-header")
     WebElement thanksText;
 
+    @FindBy(css="div.complete-text")
+    WebElement orderDispatchMessage;
+
     @FindBy(id="back-to-products")
     WebElement backToProductsButton;
 
-    public String getThanksText()
-    {
-
+    public String getThanksText() {
         return thanksText.getText();
 
+    }
+
+    public String getOrderDispatchText() {
+        return orderDispatchMessage.getText();
     }
 
     public void proceedBackToProducts() throws Exception {

@@ -1,0 +1,44 @@
+[
+  {
+    "--comment--": "information is displayed properly in \"Checkout : Overview\" page",
+    "--dataIndex" : 0,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "product" : "Sauce Labs Backpack",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R",
+    "paymentInfo" : "SauceCard #31337",
+    "shippingInfo" : "Free Pony Express Delivery!"
+  },
+  {
+    "--comment--": "cancel the order in \"Checkout : Overview\" page",
+    "--dataIndex" : 1,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "product" : "Sauce Labs Backpack",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R"
+  },
+  {
+    "--comment--": "total value of items in cart is computed correctly in \"Checkout : Overview \" page",
+    "--dataIndex" : 2,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "product" : "Sauce Labs Backpack",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R"
+  },
+  {
+    "--comment--": "navigate to \"Your Cart\" page from \"Checkout : Overview \" page",
+    "--dataIndex" : 3,
+    "username" : "standard_user",
+    "password" : "secret_sauce",
+    "product" : "Sauce Labs Backpack",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R"
+  }
+]
