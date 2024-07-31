@@ -67,7 +67,7 @@ public class happyPathTest extends BaseTest {
 
     @DataProvider
     public Object[][] getData() throws IOException {
-        String dataFilePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/happypath/happypath.json";
+        String dataFilePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/happypath.json";
         List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][]{{data.get(0)}};
     }

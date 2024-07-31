@@ -37,5 +37,15 @@
       "Sauce Labs Backpack",
       "Sauce Labs Fleece Jacket"
     ]
+  },
+  {
+    "--comment--": "error_user is able to provide last name",
+    "--dataIndex" : 3,
+    "username" : "error_user",
+    "password" : "secret_sauce",
+    "product" : "Sauce Labs Backpack",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R"
   }
 ]

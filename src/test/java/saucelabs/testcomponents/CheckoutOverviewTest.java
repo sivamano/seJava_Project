@@ -13,7 +13,7 @@ import java.util.List;
 public class CheckoutOverviewTest extends BaseTest {
 
     //declare any global variables
-    String dataFilePath = System.getProperty("user.dir")+"/src/test/java/saucelabs/data/happypath/checkoutOverview.json";
+    String dataFilePath = System.getProperty("user.dir")+"/src/test/java/saucelabs/data/checkoutOverview.json";
     //test
     @Test(dataProvider = "verifyInfoInCheckoutOverviewPageData")
     void verifyInfoInCheckoutOverviewPage(HashMap<String,Object> input) throws Exception {
@@ -162,6 +162,32 @@ public class CheckoutOverviewTest extends BaseTest {
 
     }
 
+    @Test(dataProvider = "finishBtnErrorUserData")
+    void finishBtnErrorUser(HashMap<String,Object> input) throws Exception {
+        //1.Login as error user
+        ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
+        //2.Add a product to cart
+        String prodName = (String) input.get("product");
+        productsPageObj.addProductToCart(prodName);
+        //3.Go to "Your Cart"
+        SiteHeader siteHeaderObj = new SiteHeader(driver);
+        YourCartPage yourCartPageObj = siteHeaderObj.clickShoppingCartLink();
+
+        //4.Click "Checkout" and navigate to "Your Information" page
+        YourInformationPage yourInformationPageObj = yourCartPageObj.proceedToCheckout();
+
+        //5.Verify if the user is able to provide information in "Last Name" field
+        yourInformationPageObj.providePersonalDetails((String) input.get("firstName"), (String) input.get("lastName"), (String) input.get("postalCode"));
+        CheckoutOverviewPage checkoutOverviewPageObj = yourInformationPageObj.proceedFurther();
+
+        //6.Click Finish Button
+        checkoutOverviewPageObj.proceedToFinish();
+
+        //7. Verify that Checkout Complete page is NOT displayed
+        String currentURL = driver.getCurrentUrl();
+        Assert.assertFalse(currentURL.contains("checkout-complete.html"), "Checkout: Complete page is not displayed, because Finish button is not working for error user");
+    }
+
     //data for test
     @DataProvider
     Object[][] verifyInfoInCheckoutOverviewPageData() throws IOException {
@@ -185,5 +211,11 @@ public class CheckoutOverviewTest extends BaseTest {
     Object[][] navigateToYourCartPageData() throws IOException {
         List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][] {{data.get(3)}};
+    }
+
+    @DataProvider
+    Object[][] finishBtnErrorUserData() throws IOException {
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][] {{data.get(4)}};
     }
 }

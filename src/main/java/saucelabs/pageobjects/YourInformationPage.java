@@ -36,6 +36,10 @@ public class YourInformationPage {
         postalCodeTextBox.sendKeys(postalCode);
     }
 
+    public String[] valueOfPersonalDetails() {
+        String[] valueOfField = {firstNameTextBox.getAttribute("value"),lastNameTextBox.getAttribute("value"),postalCodeTextBox.getAttribute("value")};
+        return valueOfField;
+    }
     public CheckoutOverviewPage proceedFurther()
     {
         continueButton.click();

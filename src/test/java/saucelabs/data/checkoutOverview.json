@@ -40,5 +40,15 @@
     "firstName" :"fname",
     "lastName" : "lname",
     "postalCode" : "78R45R"
+  },
+  {
+    "--comment--": "error_user is able to click Finish button ",
+    "--dataIndex" : 4,
+    "username" : "error_user",
+    "password" : "secret_sauce",
+    "product" : "Sauce Labs Backpack",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R"
   }
 ]

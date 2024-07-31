@@ -1,0 +1,23 @@
+[
+  {
+    "--comment--": "login with wrong username",
+    "--dataIndex" : 0,
+    "username" : "random1",
+    "password" : "secret_sauce",
+    "loginErrorMessage" : "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "--comment--": "login with wrong password",
+    "--dataIndex" : 1,
+    "username" : "standard_user",
+    "password" : "random1234",
+    "loginErrorMessage" : "Epic sadface: Username and password do not match any user in this service"
+  },
+  {
+    "--comment--": "locked out user is able to login to the SUT",
+    "--dataIndex" : 2,
+    "username" : "locked_out_user",
+    "password" : "secret_sauce",
+    "loginErrorMessage" : "Epic sadface: Sorry, this user has been locked out."
+  }
+]

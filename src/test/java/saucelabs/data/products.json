@@ -92,5 +92,24 @@
     "product" : "Sauce Labs Fleece Jacket",
     "productDesc" : "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.",
     "productPrice" : "$49.99"
+  },
+  {
+    "--comment--": "\"error_user\" is able to remove a product",
+    "--dataIndex" : 8,
+    "username" : "error_user",
+    "password" : "secret_sauce",
+    "product" : "Sauce Labs Backpack"
+  },
+  {
+    "--comment--": "\"error_user\" is able to add any one of the below mentioned products",
+    "--dataIndex" :9,
+    "username" : "error_user",
+    "password" : "secret_sauce",
+    "products" :
+    [
+      "Sauce Labs Bolt T-Shirt",
+      "Sauce Labs Fleece Jacket",
+      "Test.allTheThings() T-Shirt (Red)"
+    ]
   }
 ]

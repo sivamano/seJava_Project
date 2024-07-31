@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class ProductsPage {
 
@@ -155,15 +156,21 @@ public class ProductsPage {
     }
     public WebElement removeBtnOfDesiredProduct(String prodName) {
         WebElement prodNameEle = selectProductByName(prodName);
-        WebElement removeBtn = prodNameEle.findElement(By.xpath("//button[text()='Remove']"));
+        WebElement removeBtn = prodNameEle.findElement(By.xpath(".//button[text()='Remove']"));
         return removeBtn;
     }
 
-    public WebElement addTOCartBtnOfDesiredProduct(String prodName) {
-        WebElement prodNameEle = selectProductByName(prodName);
-        WebElement addToCartBtn = prodNameEle.findElement(By.xpath("//button[text()='Add to cart']"));
-        return addToCartBtn;
+    public WebElement addTOCartBtnOfDesiredProduct (String prodName) {
+        try {
+            WebElement prodNameEle = selectProductByName(prodName);
+            WebElement addToCartBtn = prodNameEle.findElement(By.xpath(".//button[text()='Add to cart']"));
+            return addToCartBtn;
+        }
+        catch (NoSuchElementException ex) {
+            return null;
+        }
     }
+
 
 
 

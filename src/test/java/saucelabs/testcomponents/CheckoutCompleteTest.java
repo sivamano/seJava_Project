@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CheckoutCompleteTest extends BaseTest {
     //declare any global variables
-    String dataFilePath = System.getProperty("user.dir")+"/src/test/java/saucelabs/data/happypath/checkoutComplete.json";
+    String dataFilePath = System.getProperty("user.dir")+"/src/test/java/saucelabs/data/checkoutComplete.json";
     //test cases
     @Test(dataProvider = "verifyThankYouMessageData")
     void verifyThankYouMessage(HashMap<String,Object> input) throws Exception {

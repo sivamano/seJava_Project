@@ -19,7 +19,7 @@ import java.util.List;
 public class YourCartTest extends BaseTest {
 
     //declare repetitive variables if any
-    String dataFilePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/happypath/yourCart.json";
+    String dataFilePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/yourCart.json";
 
     @Test(dataProvider = "editItemsFromProductsPageData")
     void editItemsFromProductsPage(HashMap<String, Object> input) {

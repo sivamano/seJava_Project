@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ProductsTest extends BaseTest {
 
-    String dataFilePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/happypath/products.json";
+    String dataFilePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/products.json";
 
     @Test(dataProvider = "getSingleProdData", groups={"E2E","Products Test"})
     public void orderASingleProduct(HashMap<String, Object> input) throws Exception {
@@ -309,6 +309,40 @@ public class ProductsTest extends BaseTest {
 
     }
 
+    @Test(dataProvider = "removeProductErrorUserData")
+    void removeProductErrorUser(HashMap<String,Object> input) {
+        //1.Login as error user
+        ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
+        //2.Add a product to cart
+        String prodName = (String) input.get("product");
+        productsPageObj.addProductToCart(prodName);
+        //3.Remove items from cart in "Products" page
+        WebElement removeBtn = productsPageObj.removeBtnOfDesiredProduct(prodName);
+        removeBtn.click();
+        //4.Verify if "Remove" button is still displayed (Negative Validation)
+        Assert.assertTrue(removeBtn.isDisplayed(),"unable to remove product "+prodName+" from cart");
+
+    }
+
+    @Test(dataProvider = "addToCartProductErrorUserData")
+    void addToCartProductErrorUser(HashMap<String,Object> input) {
+        //1.Login as error user
+        ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
+        //2.Add a product to cart
+        ArrayList<String> desiredItems = (ArrayList<String>) input.get("products");
+        for(String desiredItem : desiredItems) {
+            productsPageObj.addProductToCart(desiredItem);
+            //3.Verify if "Add to Cart" Button is still displayed for each product, which means product is not added to cart
+            Assert.assertTrue(productsPageObj.addTOCartBtnOfDesiredProduct(desiredItem).isDisplayed(),"unable to add product "+desiredItem+" to cart");
+        }
+
+
+    }
+
+
+
+
+
     @DataProvider
     Object[][] getSingleProdData() throws IOException {
         String dataFiePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/happypath/products.json";
@@ -360,4 +394,18 @@ public class ProductsTest extends BaseTest {
         List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][]{{data.get(7)}};
     }
+
+    @DataProvider
+    Object[][] removeProductErrorUserData() throws IOException {
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][] {{data.get(8)}};
+    }
+
+    @DataProvider
+    Object[][] addToCartProductErrorUserData() throws IOException {
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][] {{data.get(9)}};
+    }
+
+
 }

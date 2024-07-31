@@ -16,7 +16,7 @@ import java.util.List;
 public class YourInformationTest extends BaseTest{
 
     //declare any global variables
-    String dataFilePath = System.getProperty("user.dir")+ "/src/test/java/saucelabs/data/happypath/yourInformation.json";
+    String dataFilePath = System.getProperty("user.dir")+ "/src/test/java/saucelabs/data/yourInformation.json";
     //Testcases
     @Test(dataProvider = "enterInfoInYourInfoPageData")
     void enterInfoInYourInfoPage(HashMap<String,Object> input) {
@@ -115,6 +115,28 @@ public class YourInformationTest extends BaseTest{
         Assert.assertTrue(currentURL.contains("cart.html"));
     }
 
+    @Test(dataProvider = "enterLastNameErrorUserData")
+    void enterLastNameErrorUser(HashMap<String,Object> input) {
+        //1.Login as error user
+        ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
+        //2.Add a product to cart
+        String prodName = (String) input.get("product");
+        productsPageObj.addProductToCart(prodName);
+        //3.Go to "Your Cart"
+        SiteHeader siteHeaderObj = new SiteHeader(driver);
+        YourCartPage yourCartPageObj = siteHeaderObj.clickShoppingCartLink();
+
+        //4.Click "Checkout" and navigate to "Your Information" page
+        YourInformationPage yourInformationPageObj = yourCartPageObj.proceedToCheckout();
+
+        //5.Verify if the user is able to provide information in "Last Name" field
+        yourInformationPageObj.providePersonalDetails((String) input.get("firstName"), (String) input.get("lastName"), (String) input.get("postalCode"));
+
+        String[] valueOfField = yourInformationPageObj.valueOfPersonalDetails();
+
+        Assert.assertEquals(valueOfField[1],"","The value of LastName is empty");
+    }
+
     //Data for Testcases
     @DataProvider
     Object[][] enterInfoInYourInfoPageData() throws IOException {
@@ -132,5 +154,11 @@ public class YourInformationTest extends BaseTest{
     Object[][] navigateToCartPageFromInfoPageData() throws IOException {
         List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][] {{data.get(2)}};
+    }
+
+    @DataProvider
+    Object[][] enterLastNameErrorUserData() throws IOException {
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][] {{data.get(3)}};
     }
 }
