@@ -49,6 +49,13 @@ public class ProductsPage {
                 .orElse(null);
         return productName;
     }
+    // retrieve the filename of the product image
+    public String fileNameOfProdImage(String prodName)
+    {
+        WebElement desiredProdNameEle = selectProductByName(prodName);
+        String fileName = desiredProdNameEle.findElement(By.xpath("//img[@class=\"inventory_item_img\"]")).getAttribute("src");
+        return fileName;
+    }
     // this method returns the WebElement of description of the desired product
     public WebElement selectProductByDescription(String prodDescription) {
         productDescription = inventoryList.stream()
@@ -159,7 +166,6 @@ public class ProductsPage {
         WebElement removeBtn = prodNameEle.findElement(By.xpath(".//button[text()='Remove']"));
         return removeBtn;
     }
-
     public WebElement addTOCartBtnOfDesiredProduct (String prodName) {
         try {
             WebElement prodNameEle = selectProductByName(prodName);

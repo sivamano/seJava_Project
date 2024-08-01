@@ -1,5 +1,6 @@
 package saucelabs.testcomponents;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -339,14 +340,40 @@ public class ProductsTest extends BaseTest {
 
     }
 
+    @Test(dataProvider = "sortingForErrorUserData")
+    void sortingForErrorUser(HashMap<String,Object> input) {
+        //1.Login as  error_user
+        ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
+        //2.Sort the products by price (High to low)
+        productsPageObj.selectFromDropdown((String) input.get("sortBy"));
+        Alert alert = driver.switchTo().alert();
+        Assert.assertEquals(alert.getText(),input.get("alertText"),"Alert Error message is validated");
+    }
 
+    @Test(dataProvider = "imageOfProblemUserData")
+    void imageOfProblemUser(HashMap<String,Object> input) {
+       // 1.Login as  problem_user
+        ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
+       // 2.Verify whether correct product image is displayed for each product
+        ArrayList<String> prodNames = (ArrayList<String>) input.get("products");
+        ArrayList<String> prodImages = (ArrayList<String>) input.get("productImages");
+        for(String prodName : prodNames)
+        {
+            for(String prodImage : prodImages)
+            {
+                Assert.assertNotEquals(productsPageObj.fileNameOfProdImage(prodName),prodImage,"Image file ("+prodImage+") of the product "+prodName+" does not match" );
+            }
+
+        }
+
+    }
 
 
 
     @DataProvider
     Object[][] getSingleProdData() throws IOException {
-        String dataFiePath = System.getProperty("user.dir") + "/src/test/java/saucelabs/data/happypath/products.json";
-        List<HashMap<String, Object>> data = getDataToMap(dataFiePath);
+
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][]{{data.get(1)}};
 
     }
@@ -405,6 +432,18 @@ public class ProductsTest extends BaseTest {
     Object[][] addToCartProductErrorUserData() throws IOException {
         List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][] {{data.get(9)}};
+    }
+
+    @DataProvider
+    Object[][] sortingForErrorUserData() throws IOException {
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][] {{data.get(10)}};
+    }
+
+    @DataProvider
+    Object[][] imageOfProblemUserData() throws IOException {
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][] {{data.get(11)}};
     }
 
 

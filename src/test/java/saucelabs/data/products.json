@@ -111,5 +111,38 @@
       "Sauce Labs Fleece Jacket",
       "Test.allTheThings() T-Shirt (Red)"
     ]
+  },
+  {
+    "--comment--": "sorting is working for \"error_user\"",
+    "--dataIndex" :10,
+    "username" : "error_user",
+    "password" : "secret_sauce",
+    "sortBy" : "Price (high to low)",
+    "alertText" : "Sorting is broken! This error has been reported to Backtrace."
+  },
+  {
+    "--comment--": "wrong  product image is displayed for \"problem_user\"",
+    "--dataIndex" :11,
+    "username" : "problem_user",
+    "password" : "secret_sauce",
+    "products" :
+      [
+        "Sauce Labs Backpack",
+        "Sauce Labs Bike Light",
+        "Sauce Labs Bolt T-Shirt",
+        "Sauce Labs Fleece Jacket",
+        "Sauce Labs Onesie",
+        "Test.allTheThings() T-Shirt (Red)"
+      ],
+    "productImages" :
+      [
+        "/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg",
+        "/static/media/bike-light-1200x1500.37c843b0.jpg",
+        "/static/media/bolt-shirt-1200x1500.c2599ac5.jpg",
+        "/static/media/sauce-pullover-1200x1500.51d7ffaf.jpg",
+        "/static/media/red-onesie-1200x1500.2ec615b2.jpg",
+        "/static/media/red-tatt-1200x1500.30dadef4.jpg"
+      ],
+    "errorProductImage" : "/static/media/sl-404.168b1cce.jpg"
   }
 ]
