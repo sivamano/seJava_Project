@@ -10,7 +10,7 @@
 
 
 Testcase document is present in "<projectroot>\Project Documents\Test Case" path
-	There are 21 positive test scripts and 9 negative test scripts, in total 30 test scripts
+	There are 21 positive test scripts and 12 negative test scripts, in total 33 test scripts
 
 
  
