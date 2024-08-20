@@ -18,6 +18,9 @@ public class SiteHeader {
     @FindBy(className = "shopping_cart_link")
     WebElement shoppingCartLink;
 
+    @FindBy(id="shopping_cart_container")
+    WebElement shoppingCartContainer;
+
     @FindBy(css = "span.shopping_cart_badge")
     public WebElement cartBadge;
 
@@ -34,5 +37,16 @@ public class SiteHeader {
         return cartBadgeCount;
     }
 
+    public String[] getShoppingCartPositionalAttr(){
+
+        String height = shoppingCartContainer.getCssValue("height");
+        String width = shoppingCartContainer.getCssValue("width");
+        String position = shoppingCartContainer.getCssValue("position");
+        String top = shoppingCartContainer.getCssValue("top");
+        String right = shoppingCartContainer.getCssValue("right");
+
+        String[] scPositionalAttr = {height,width,position,top,right};
+        return scPositionalAttr;
+    }
 }
 

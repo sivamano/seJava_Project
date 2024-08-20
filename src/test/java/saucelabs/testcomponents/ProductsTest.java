@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import saucelabs.common.MenuBar;
 import saucelabs.common.SiteHeader;
 import saucelabs.pageobjects.*;
 import java.io.IOException;
@@ -368,7 +369,26 @@ public class ProductsTest extends BaseTest {
 
     }
 
-
+    @Test(dataProvider = "visualUserProductsPageData")
+    void visualUserProductsPage(HashMap<String ,Object> input)
+    {
+        //1.Login as a visual_user
+        ProductsPage productsPageObj = loginPage.loginToApp((String) input.get("username"), (String) input.get("password"));
+        //2.Verify the position of following icons in the "products" page
+        //Menu Icon
+        MenuBar menuBarObj = new MenuBar(driver);
+        Assert.assertFalse(menuBarObj.getMenuTransformProperty().contains("Icon is not rotated"),"Icon is titled by some angle");
+        //shopping cart icon
+        SiteHeader siteHeaderObj = new SiteHeader(driver);
+        String[] scPositionalAttrActual = siteHeaderObj.getShoppingCartPositionalAttr();
+        ArrayList<String> scPositionalAttrExpected = (ArrayList<String>) input.get("shoppingCartAttributes");
+        Assert.assertNotEquals(scPositionalAttrActual[3],scPositionalAttrExpected.get(3),"Top position of the shopping cart icon is changed");
+        Assert.assertNotEquals(scPositionalAttrActual[4],scPositionalAttrExpected.get(4),"Right position of the shopping cart icon is changed");
+        //product image
+        String prodName = (String) input.get("product");
+        String prodImage = (String) input.get("prodImage");
+        Assert.assertNotEquals(productsPageObj.fileNameOfProdImage(prodName),prodImage,"Image file ("+prodImage+") of the product "+prodName+" does not match" );
+    }
 
     @DataProvider
     Object[][] getSingleProdData() throws IOException {
@@ -444,6 +464,12 @@ public class ProductsTest extends BaseTest {
     Object[][] imageOfProblemUserData() throws IOException {
         List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
         return new Object[][] {{data.get(11)}};
+    }
+
+    @DataProvider
+    Object[][] visualUserProductsPageData() throws IOException {
+        List<HashMap<String, Object>> data = getDataToMap(dataFilePath);
+        return new Object[][] {{data.get(12)}};
     }
 
 

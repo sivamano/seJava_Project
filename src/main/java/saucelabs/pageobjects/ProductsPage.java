@@ -40,6 +40,7 @@ public class ProductsPage {
 
 
 
+
     // this method returns the specific "INVENTORY" based on the name of the inventory
     public WebElement selectProductByName(String prodName) {
         productName = inventoryList.stream()

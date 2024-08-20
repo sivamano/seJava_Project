@@ -144,5 +144,20 @@
         "/static/media/red-tatt-1200x1500.30dadef4.jpg"
       ],
     "errorProductImage" : "/static/media/sl-404.168b1cce.jpg"
+  },
+  {
+    "--comment--": " \"Products\" page for \"visual_user\"",
+    "--dataIndex" : 12,
+    "username" : "visual_user",
+    "password" : "secret_sauce",
+    "firstName" :"fname",
+    "lastName" : "lname",
+    "postalCode" : "78R45R",
+    "product" : "Sauce Labs Backpack",
+    "productImage" : "/static/media/sauce-backpack-1200x1500.0a0b85a3.jpg",
+    "shoppingCartAttributes" :
+            [
+              "40px","40px","absolute","10px","20px"
+            ]
   }
 ]

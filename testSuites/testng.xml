@@ -6,6 +6,11 @@
     <test name = "ProductsTest">
         <classes>
             <class name="saucelabs.testcomponents.ProductsTest" />
+            <class name="saucelabs.testcomponents.CheckoutCompleteTest" />
+            <class name="saucelabs.testcomponents.CheckoutOverviewTest" />
+            <class name="saucelabs.testcomponents.LoginTest" />
+            <class name="saucelabs.testcomponents.YourCartTest" />
+            <class name="saucelabs.testcomponents.YourInformationTest" />
         </classes>
 
     </test>
