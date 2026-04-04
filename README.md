@@ -1,4 +1,4 @@
-# seJava_basicProject
+# SeleniumJava_Project
 
 	Selenium with Java project
 	System Under Test - https://www.saucedemo.com/
